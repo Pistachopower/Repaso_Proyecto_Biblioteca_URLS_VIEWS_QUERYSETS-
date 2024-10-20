@@ -1,0 +1,49 @@
+<html>
+    <head></head>
+    <body>
+{% comment %}
+   <!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Biblioteca</h1>
+
+    {% for libro in libros_mostrar %}
+        <div>
+            <h2>Nombre: {{ libro.nombre }} </h2>
+            <h2>Biblioteca {{ libro.biblioteca.nombre }}</h2>
+            <h2>Autores</h2>
+            <ul>
+                {% for autor in libro.autores.all %}
+                    <li>{{ autor.nombre }}</li>
+                   
+                {% endfor%}
+            </ul>
+            <p>Fecha Publicacion {{ libro.fecha_publicacion }}:
+            </p>
+            <h3>Idioma: {{ libro.get_idioma_display }}
+            </h3>
+   
+            <p>Descripcion{{ libro.descripcion }}</p>
+        </div>
+    {% endfor %}
+
+    </body>
+</html>
+
+{% endcomment %}
+
+<h1>BIBLIOTECA ONLINE</h1>
+
+<h2>Listado de enlaces</h2>
+<ul>
+    <!--lista_libros viene de nuestra view-->
+    <li><a href="{% url 'lista_libros' %}">Libros</a></li>
+</ul>
+
+<ul>
+    <!--lista_libros viene de nuestra view-->
+    <li><a href="{% url 'dame_libros_biblioteca' 1 'a' %}">Libros Biblioteca 1 con filtro de texto</a></li>
+</ul>
+    </body>
+</html>

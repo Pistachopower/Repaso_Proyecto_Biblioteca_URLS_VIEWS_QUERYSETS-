@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+    <h1>Biblioteca</h1>
+            
+
+            <h2>Biblioteca: {{ libro_mostrar.biblioteca.nombre }}</h2>
+            <h2>Nombre del libro: {{ libro_mostrar.nombre }} </h2>
+           
+            <h2>Autores</h2>
+            <ul>
+
+                {% for autor in libro_mostrar.autores.all %}
+                    <li>nombre autor: {{ autor.nombre }}</li>
+                   
+                {% endfor%}
+            </ul>
+            <h3>Idioma: {{ libro_mostrar.get_tipo_display }}</h3>
+
+         
+   
+            <p>Descripcion {{ libro_mostrar.descripcion }}</p>
+     
+
+    </body>
+</html>
